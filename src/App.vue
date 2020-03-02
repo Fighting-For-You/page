@@ -1,32 +1,54 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+  <div class="body">
+    <Header />
+    <div class="main">
+      <div class="menu">
+        <LeftMenu />
+      </div>
+      <div class="content">
+        <NavTitle />
+        <router-view></router-view>
+      </div>
     </div>
-    <router-view/>
   </div>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+// @ is an alias to /src
+import Header from "@/components/Header.vue";
+import LeftMenu from "@/components/LeftMenu.vue";
+import NavTitle from "@/components/NavTitle.vue";
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  name: "index",
+  components: {
+    Header,
+    LeftMenu,
+    NavTitle
+  },
+  data() {
+    return {};
+  },
+  created() {},
+  methods: {
+    handleOpen(key, keyPath) {
+      console.log(key, keyPath);
+    },
+    handleClose(key, keyPath) {
+      console.log(key, keyPath);
     }
+  }
+};
+</script>
+
+<style lang="scss">
+body {
+  margin: 0 0px;
+  .content {
+    width: 80%;
+    left: 230px;
+    position: absolute;
   }
 }
 </style>
+
