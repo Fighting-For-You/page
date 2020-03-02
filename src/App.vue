@@ -6,7 +6,6 @@
         <LeftMenu />
       </div>
       <div class="content">
-        <NavTitle />
         <router-view></router-view>
       </div>
     </div>
@@ -17,14 +16,14 @@
 // @ is an alias to /src
 import Header from "@/components/Header.vue";
 import LeftMenu from "@/components/LeftMenu.vue";
-import NavTitle from "@/components/NavTitle.vue";
+// import Index from "@/views/Index.vue";
 
 export default {
   name: "index",
   components: {
     Header,
-    LeftMenu,
-    NavTitle
+    LeftMenu
+    // Index
   },
   data() {
     return {};

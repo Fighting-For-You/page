@@ -1,6 +1,6 @@
 <template>
   <div class="head">
-    <div class="logo Left">GLAWAY BI</div>
+    <div class="logo Left"></div>
     <div class="name Right">{{userName}}</div>
     <div class="clear"></div>
   </div>

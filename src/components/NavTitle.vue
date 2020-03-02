@@ -1,7 +1,11 @@
 <template>
   <div class="crumb clearfix">
     <el-breadcrumb class="breadcrumb-container" separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item v-for="item in levelList" :key="item.path">{{item.meta.title}}</el-breadcrumb-item>
+      <el-breadcrumb-item
+        v-for="item in levelList"
+        :key="item.path"
+        @click.native="toLobby(item.path)"
+      >{{item.meta.title}}</el-breadcrumb-item>
     </el-breadcrumb>
   </div>
 </template>
@@ -34,6 +38,16 @@ export default {
         matched = [].concat(matched);
       }
       this.levelList = matched;
+    },
+    toLobby(path) {
+      if (path == "/index") {
+        console.log(1111);
+        localStorage.setItem("activeIndex", 0);
+        this.$store.commit("setActiveIndex", 0);
+        this.$router.push({
+          name: "lobby"
+        });
+      }
     }
   }
 };
